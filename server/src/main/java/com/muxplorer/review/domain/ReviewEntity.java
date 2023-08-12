@@ -1,4 +1,4 @@
-package com.muxplorer.review.dto;
+package com.muxplorer.review.domain;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
