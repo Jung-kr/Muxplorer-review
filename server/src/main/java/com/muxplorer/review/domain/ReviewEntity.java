@@ -6,6 +6,7 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 
 @Entity
@@ -27,7 +28,7 @@ public class ReviewEntity {
     private String content;
 
     private String pictureUrl;
-    private Date createDate;
-    private Date modifiedDate;
+    private LocalDateTime createDate;
+    private LocalDateTime modifiedDate;
 
 }
