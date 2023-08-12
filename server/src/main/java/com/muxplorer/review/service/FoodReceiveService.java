@@ -3,11 +3,11 @@ package com.muxplorer.review.service;
 import com.muxplorer.review.domain.FoodEntity;
 import com.muxplorer.review.dto.FoodRequest;
 import com.muxplorer.review.repository.FoodRepository;
-import lombok.RequiredArgsConstructor;
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
-@RequiredArgsConstructor
 @Service
+@AllArgsConstructor
 public class FoodReceiveService {
 
     private final FoodRepository foodRepository;
