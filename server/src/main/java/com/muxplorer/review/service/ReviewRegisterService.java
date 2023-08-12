@@ -20,6 +20,7 @@ public class ReviewRegisterService {
         ReviewEntity reviewEntity = ReviewEntity.builder()
                 .food(foodEntity)
                 .content(reviewRequest.getContent())
+                .rating(reviewRequest.getRating())
                 .pictureUrl(reviewRequest.getPictureUrl())
                 .createDate(LocalDateTime.now())
                 .modifiedDate(LocalDateTime.now())

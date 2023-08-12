@@ -9,5 +9,6 @@ import java.util.Date;
 public class ReviewRequest {
 
     private String content;
+    private Float rating;
     private String pictureUrl;
 }

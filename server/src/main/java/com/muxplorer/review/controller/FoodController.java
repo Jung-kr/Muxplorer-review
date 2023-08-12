@@ -22,12 +22,12 @@ public class FoodController {
     private final FoodReceiveService foodReceiveService;
     private final FoodStatusService foodStatusService;
 
-    @PostMapping("/create")
+    @PostMapping("/register")
     public FoodDto foodADD(@RequestBody FoodRequest foodRequest) {
         return new FoodDto(foodReceiveService.addFood(foodRequest));
     }
 
-    @GetMapping("/read/all")
+    @GetMapping("/list")
     public List<FoodDto> foodAllList() {
         return foodStatusService.findAllFood().stream().map(foodEntity -> new FoodDto(foodEntity)).collect((toList()));
     }
