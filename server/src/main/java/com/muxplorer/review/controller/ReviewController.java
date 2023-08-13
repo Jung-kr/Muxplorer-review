@@ -2,6 +2,7 @@ package com.muxplorer.review.controller;
 
 import com.muxplorer.review.domain.FoodEntity;
 import com.muxplorer.review.domain.ReviewEntity;
+import com.muxplorer.review.dto.ApiResult;
 import com.muxplorer.review.dto.ReviewDto;
 import com.muxplorer.review.dto.ReviewRequest;
 import com.muxplorer.review.service.FoodStatusService;
@@ -28,16 +29,16 @@ public class ReviewController {
 
     // 리뷰 등록
     @PostMapping("register/{id}")
-    public ReviewDto registerReview(@PathVariable("id") Long foodId, @RequestBody ReviewRequest reviewRequest) {
+    public ApiResult<ReviewDto> registerReview(@PathVariable("id") Long foodId, @RequestBody ReviewRequest reviewRequest) {
         FoodEntity foodEntity = foodStatusService.findByIdFood(foodId);
-        return new ReviewDto(reviewRegisterService.addReview(foodEntity, reviewRequest));
+        return ApiResult.OK(new ReviewDto(reviewRegisterService.addReview(foodEntity, reviewRequest)));
     }
 
     // 특정 음식에 해당하는 리뷰 리스트
     @GetMapping("list/{id}")
-    public List<ReviewDto> reviewList(@PathVariable("id") Long foodId) {
+    public ApiResult<List<ReviewDto>> reviewList(@PathVariable("id") Long foodId) {
         FoodEntity foodEntity = foodStatusService.findByIdFood(foodId);
-        return reviewStatusService.findReviewByFood(foodEntity).stream().map(reviewEntity -> new ReviewDto(reviewEntity)).collect(toList());
+        return ApiResult.OK(reviewStatusService.findReviewByFood(foodEntity).stream().map(reviewEntity -> new ReviewDto(reviewEntity)).collect(toList()));
     }
 
 

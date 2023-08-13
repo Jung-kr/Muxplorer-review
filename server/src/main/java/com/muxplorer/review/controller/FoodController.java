@@ -31,13 +31,13 @@ public class FoodController {
 
     // 음식 리스트
     @GetMapping("/list")
-    public List<FoodDto> foodListAll() {
-        return foodStatusService.findAllFood().stream().map(foodEntity -> new FoodDto(foodEntity)).collect((toList()));
+    public ApiResult<List<FoodDto>> foodListAll() {
+        return ApiResult.OK(foodStatusService.findAllFood().stream().map(foodEntity -> new FoodDto(foodEntity)).collect((toList())));
     }
 
     // 음식점별 음식 리스트
     @GetMapping("/list/{restaurant}")
-    public List<FoodDto> foodListRestaurant(@PathVariable("restaurant") String restaurant) {
+    public ApiResult<List<FoodDto>> foodListRestaurant(@PathVariable("restaurant") String restaurant) {
         String restaurantName = null;
         if(restaurant.equals("eunhasu")) {
             restaurantName = "은하수식당";
@@ -47,6 +47,6 @@ public class FoodController {
             restaurantName = "한빛식당";
         }
 
-        return foodStatusService.findByRestaurantFood(restaurantName).stream().map(foodEntity -> new FoodDto(foodEntity)).collect(toList());
+        return ApiResult.OK(foodStatusService.findByRestaurantFood(restaurantName).stream().map(foodEntity -> new FoodDto(foodEntity)).collect(toList()));
     }
 }
