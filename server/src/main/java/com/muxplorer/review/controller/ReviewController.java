@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import static java.util.stream.Collectors.toList;
+
 @Controller
 @ResponseBody
 @RequestMapping("/review")
@@ -31,11 +33,11 @@ public class ReviewController {
         return new ReviewDto(reviewRegisterService.addReview(foodEntity, reviewRequest));
     }
 
-    // 음식에 해당하는 리뷰 리스트
+    // 특정 음식에 해당하는 리뷰 리스트
     @GetMapping("list/{id}")
     public List<ReviewDto> reviewList(@PathVariable("id") Long foodId) {
         FoodEntity foodEntity = foodStatusService.findByIdFood(foodId);
-        return reviewStatusService.findReviewByFood(foodEntity).stream().map(reviewEntity -> new ReviewDto(reviewEntity)).collect(Collectors.toList());
+        return reviewStatusService.findReviewByFood(foodEntity).stream().map(reviewEntity -> new ReviewDto(reviewEntity)).collect(toList());
     }
 
 

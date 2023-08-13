@@ -18,4 +18,6 @@ public class FoodStatusService {
     public List<FoodEntity> findAllFood() {return foodRepository.findAll();}
 
     public FoodEntity findByIdFood(Long foodId) {return foodRepository.findById(foodId).get();}
+
+    public List<FoodEntity> findByRestaurantFood(String restaurant) {return foodRepository.findByRestaurant(restaurant);}
 }
