@@ -14,7 +14,7 @@ public class ReviewDto {
     private Long id;
     private String content;
     private Float rating;
-    private String pictureUrl;
+    private String reviewPicture;
     private LocalDateTime createDate;
     private LocalDateTime modifiedDate;
 

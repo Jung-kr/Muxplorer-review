@@ -10,5 +10,5 @@ public class ReviewRequest {
 
     private String content;
     private Float rating;
-    private String pictureUrl;
+    private String reviewPicture;
 }

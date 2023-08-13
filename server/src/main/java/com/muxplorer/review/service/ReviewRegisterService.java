@@ -21,7 +21,7 @@ public class ReviewRegisterService {
                 .food(foodEntity)
                 .content(reviewRequest.getContent())
                 .rating(reviewRequest.getRating())
-                .pictureUrl(reviewRequest.getPictureUrl())
+                .reviewPicture(reviewRequest.getReviewPicture())
                 .createDate(LocalDateTime.now())
                 .modifiedDate(LocalDateTime.now())
                 .build();

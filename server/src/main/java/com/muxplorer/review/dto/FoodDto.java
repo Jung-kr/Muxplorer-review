@@ -12,7 +12,7 @@ public class FoodDto {
     private Long id;
     private String name;
     private String restaurant;
-    private String food_url;
+    private String foodPicture;
 
     public FoodDto(FoodEntity foodEntity) {
         copyProperties(foodEntity, this);

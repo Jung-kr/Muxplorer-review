@@ -16,7 +16,7 @@ public class FoodReceiveService {
         FoodEntity foodEntity = FoodEntity.builder()
                 .name(foodRequest.getName())
                 .restaurant(foodRequest.getRestaurant())
-                .food_url(foodRequest.getFood_url())
+                .foodPicture(foodRequest.getFoodPicture())
                 .build();
 
         return foodRepository.save(foodEntity);
