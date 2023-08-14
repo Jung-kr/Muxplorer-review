@@ -11,7 +11,9 @@ import static org.springframework.beans.BeanUtils.copyProperties;
 @Getter
 @Setter
 public class ReviewDto {
+
     private Long id;
+    private Long userId;
     private String content;
     private Float rating;
     private String reviewPicture;

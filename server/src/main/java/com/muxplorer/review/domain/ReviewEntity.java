@@ -24,6 +24,8 @@ public class ReviewEntity {
     @ManyToOne(fetch = FetchType.LAZY)
     private FoodEntity food;
 
+    private Long userId;
+
     @Column(columnDefinition = "TEXT")
     private String content;
     private Float rating;

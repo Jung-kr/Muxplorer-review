@@ -17,8 +17,17 @@ public class ReviewRegisterService {
     private final ReviewRepository reviewRepository;
 
     public ReviewEntity addReview(FoodEntity foodEntity, ReviewRequest reviewRequest) {
+
+        /* userId로 닉네임 불러오기 API
+            private Long userId = reviewRequest.getUserId();
+            private String nickname = ~~~~~
+
+            밑에 코드도 수정 (nickname, userId)
+        */
+
         ReviewEntity reviewEntity = ReviewEntity.builder()
                 .food(foodEntity)
+                .userId(reviewRequest.getUserId())
                 .content(reviewRequest.getContent())
                 .rating(reviewRequest.getRating())
                 .reviewPicture(reviewRequest.getReviewPicture())
