@@ -11,6 +11,7 @@ import com.muxplorer.review.service.ReviewStatusService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -29,9 +30,10 @@ public class ReviewController {
 
     // 리뷰 등록
     @PostMapping("register/{id}")
-    public ApiResult<ReviewDto> registerReview(@PathVariable("id") Long foodId, @RequestBody ReviewRequest reviewRequest) {
+    public ApiResult<ReviewDto> registerReview(@PathVariable("id") Long foodId, @RequestPart("image") MultipartFile image,
+                                               @RequestPart("info") ReviewRequest reviewRequest) {
         FoodEntity foodEntity = foodStatusService.findByIdFood(foodId);
-        return ApiResult.OK(new ReviewDto(reviewRegisterService.addReview(foodEntity, reviewRequest)));
+        return ApiResult.OK(new ReviewDto(reviewRegisterService.addReview(foodEntity, reviewRequest, image)));
     }
 
     // 특정 음식에 해당하는 리뷰 리스트

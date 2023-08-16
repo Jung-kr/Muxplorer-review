@@ -12,6 +12,5 @@ public class ReviewRequest {
     private Long userId;
     private String content;
     private Float rating;
-    private String reviewPicture;
 
 }
