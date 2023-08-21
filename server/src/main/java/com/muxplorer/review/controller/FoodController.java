@@ -1,5 +1,6 @@
 package com.muxplorer.review.controller;
 
+import com.muxplorer.review.domain.FoodEntity;
 import com.muxplorer.review.dto.ApiResult;
 import com.muxplorer.review.dto.FoodDto;
 import com.muxplorer.review.dto.FoodRequest;
@@ -25,8 +26,9 @@ public class FoodController {
 
     // 음식 리스트 받아오기(크롤링)
     @PostMapping("/register")
-    public ApiResult<FoodDto> foodRegister(@RequestBody FoodRequest foodRequest) {
-        return ApiResult.OK(new FoodDto(foodReceiveService.addFood(foodRequest)));
+    public ApiResult<List<FoodEntity>> foodRegister(@RequestBody List<FoodRequest> foodRequest) {
+        List<FoodEntity> foods = foodReceiveService.addFood(foodRequest);
+        return ApiResult.OK(foods);
     }
 
     // 음식 리스트

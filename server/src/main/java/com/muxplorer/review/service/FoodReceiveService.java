@@ -6,20 +6,33 @@ import com.muxplorer.review.repository.FoodRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Service
 @AllArgsConstructor
 public class FoodReceiveService {
 
     private final FoodRepository foodRepository;
 
-    public FoodEntity addFood(FoodRequest foodRequest) {
-        FoodEntity foodEntity = FoodEntity.builder()
-                .name(foodRequest.getName())
-                .restaurant(foodRequest.getRestaurant())
-                .foodPicture(foodRequest.getFoodPicture())
-                .build();
+    public List<FoodEntity> addFood(List<FoodRequest> foodRequestList) {
+        List<FoodEntity> responseList = new ArrayList<>();
 
-        return foodRepository.save(foodEntity);
+        for(FoodRequest foodRequest : foodRequestList) {
+            if(foodRepository.existsByNameAndRestaurant(foodRequest.getName(), foodRequest.getRestaurant())) {
+                continue;
+            }
+
+            FoodEntity foodEntity = FoodEntity.builder()
+                    .name(foodRequest.getName())
+                    .restaurant(foodRequest.getRestaurant())
+                    .foodPicture(foodRequest.getFoodPicture())
+                    .build();
+
+            foodRepository.save(foodEntity);
+            responseList.add(foodEntity);
+        }
+        return responseList;
     }
 
 
