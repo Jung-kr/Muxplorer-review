@@ -11,6 +11,7 @@ import org.springframework.web.multipart.MultipartFile;
 import java.io.File;
 import java.io.IOException;
 import java.time.LocalDateTime;
+import java.util.Date;
 import java.util.UUID;
 
 @Service
@@ -22,8 +23,14 @@ public class ReviewRegisterService {
 
     public ReviewEntity addReview(FoodEntity foodEntity, ReviewRequest reviewRequest, MultipartFile image) {
 
-        String uuid = UUID.randomUUID().toString();
-        String filePath = FOLDER_PATH + File.separator+ uuid + "_" + image.getOriginalFilename();
+        Date date = new Date();
+        String filePath = "";
+
+        if(image.isEmpty()) {
+            filePath = "null";
+        } else {
+            filePath = FOLDER_PATH + File.separator+ date.getTime() + "_" + image.getOriginalFilename();
+        }
 
         /* userId로 닉네임 불러오기 API
             private Long userId = reviewRequest.getUserId();
@@ -43,7 +50,9 @@ public class ReviewRegisterService {
                 .build();
 
         try {
-            image.transferTo(new File(filePath));
+            if(!image.isEmpty()) {
+                image.transferTo(new File(filePath));
+            }
         } catch (IOException e) {
             e.printStackTrace();
         }

@@ -11,7 +11,7 @@ import java.util.List;
 
 @Service
 @AllArgsConstructor
-public class FoodReceiveService {
+public class FoodSendService {
 
     private final FoodRepository foodRepository;
 

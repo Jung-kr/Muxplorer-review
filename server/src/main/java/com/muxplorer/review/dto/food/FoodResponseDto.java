@@ -8,13 +8,13 @@ import static org.springframework.beans.BeanUtils.copyProperties;
 
 @Getter
 @Setter
-public class FoodDto {
+public class FoodResponseDto {
     private Long id;
     private String name;
     private String restaurant;
     private String foodPicture;
 
-    public FoodDto(FoodEntity foodEntity) {
+    public FoodResponseDto(FoodEntity foodEntity) {
         copyProperties(foodEntity, this);
     }
 }

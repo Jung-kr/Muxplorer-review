@@ -10,7 +10,7 @@ import static org.springframework.beans.BeanUtils.copyProperties;
 
 @Getter
 @Setter
-public class ReviewDto {
+public class ReviewResponseDto {
 
     private Long id;
     private Long userId;
@@ -20,5 +20,5 @@ public class ReviewDto {
     private LocalDateTime createDate;
     private LocalDateTime modifiedDate;
 
-    public ReviewDto(ReviewEntity reviewEntity) {copyProperties(reviewEntity, this);}
+    public ReviewResponseDto(ReviewEntity reviewEntity) {copyProperties(reviewEntity, this);}
 }
