@@ -1,4 +1,4 @@
-package com.muxplorer.review.service;
+package com.muxplorer.review.service.review;
 
 import com.muxplorer.review.domain.FoodEntity;
 import com.muxplorer.review.domain.ReviewEntity;

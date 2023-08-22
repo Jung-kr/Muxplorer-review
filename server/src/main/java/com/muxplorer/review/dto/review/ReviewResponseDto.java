@@ -1,4 +1,4 @@
-package com.muxplorer.review.dto;
+package com.muxplorer.review.dto.review;
 
 import com.muxplorer.review.domain.ReviewEntity;
 import lombok.Getter;

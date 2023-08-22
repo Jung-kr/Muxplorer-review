@@ -1,7 +1,7 @@
-package com.muxplorer.review.service;
+package com.muxplorer.review.service.food;
 
 import com.muxplorer.review.domain.FoodEntity;
-import com.muxplorer.review.dto.FoodRequest;
+import com.muxplorer.review.dto.food.FoodRequest;
 import com.muxplorer.review.repository.FoodRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;

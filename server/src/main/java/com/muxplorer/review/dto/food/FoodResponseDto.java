@@ -1,4 +1,4 @@
-package com.muxplorer.review.dto;
+package com.muxplorer.review.dto.food;
 
 import com.muxplorer.review.domain.FoodEntity;
 import lombok.Getter;

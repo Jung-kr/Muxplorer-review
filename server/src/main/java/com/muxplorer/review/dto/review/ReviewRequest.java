@@ -1,4 +1,4 @@
-package com.muxplorer.review.dto;
+package com.muxplorer.review.dto.review;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;

@@ -1,8 +1,8 @@
-package com.muxplorer.review.service;
+package com.muxplorer.review.service.review;
 
 import com.muxplorer.review.domain.FoodEntity;
 import com.muxplorer.review.domain.ReviewEntity;
-import com.muxplorer.review.dto.ReviewRequest;
+import com.muxplorer.review.dto.review.ReviewRequest;
 import com.muxplorer.review.repository.ReviewRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -12,7 +12,6 @@ import java.io.File;
 import java.io.IOException;
 import java.time.LocalDateTime;
 import java.util.Date;
-import java.util.UUID;
 
 @Service
 @AllArgsConstructor
