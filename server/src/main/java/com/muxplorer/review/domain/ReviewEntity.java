@@ -6,6 +6,7 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 
 @Entity
@@ -23,11 +24,13 @@ public class ReviewEntity {
     @ManyToOne(fetch = FetchType.LAZY)
     private FoodEntity food;
 
+    private Long userId;
+
     @Column(columnDefinition = "TEXT")
     private String content;
-
-    private String pictureUrl;
-    private Date createDate;
-    private Date modifiedDate;
+    private Float rating;
+    private String reviewPicture;
+    private LocalDateTime createDate;
+    private LocalDateTime modifiedDate;
 
 }

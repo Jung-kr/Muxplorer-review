@@ -1,4 +1,4 @@
-package com.muxplorer.review.dto;
+package com.muxplorer.review.dto.food;
 
 import lombok.Getter;
 
@@ -6,5 +6,5 @@ import lombok.Getter;
 public class FoodRequest {
     private String name;
     private String restaurant;
-    private String food_url;
+    private String foodPicture;
 }

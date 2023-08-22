@@ -1,5 +1,6 @@
 package com.muxplorer.review.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -22,8 +23,9 @@ public class FoodEntity {
 
     private String name;
     private String restaurant;
-    private String food_url;
+    private String foodPicture;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "food", cascade = CascadeType.REMOVE)
     private List<ReviewEntity> reviewEntityList;
 }

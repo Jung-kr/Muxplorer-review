@@ -1,18 +1,20 @@
-package com.muxplorer.review.dto;
+package com.muxplorer.review.dto.food;
 
 import com.muxplorer.review.domain.FoodEntity;
 import lombok.Getter;
+import lombok.Setter;
 
 import static org.springframework.beans.BeanUtils.copyProperties;
 
 @Getter
-public class FoodDto {
+@Setter
+public class FoodResponseDto {
     private Long id;
     private String name;
     private String restaurant;
-    private String food_url;
+    private String foodPicture;
 
-    public FoodDto(FoodEntity foodEntity) {
+    public FoodResponseDto(FoodEntity foodEntity) {
         copyProperties(foodEntity, this);
     }
 }
