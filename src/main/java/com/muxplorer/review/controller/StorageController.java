@@ -5,7 +5,6 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -19,7 +18,7 @@ public class StorageController {
     final private StorageService storageService;
 
     @PostMapping("/filesystem")
-    public ResponseEntity<?> uploadImageToFileSystem(@RequestParam("image") MultipartFile file) throws IOException {
+    public ResponseEntity<?> uploadImageToFileSystem(@RequestParam(value = "image", required = false) MultipartFile file) throws IOException {
         String uploadImage = storageService.uploadImageToFileSystem(file);
         return ResponseEntity.status(HttpStatus.OK)
                 .body(uploadImage);

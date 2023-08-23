@@ -17,7 +17,6 @@ public class ReviewResponseDto {
     private String nickname;
     private String content;
     private Float rating;
-    private String reviewPicture;
     private LocalDateTime createDate;
     private LocalDateTime modifiedDate;
 

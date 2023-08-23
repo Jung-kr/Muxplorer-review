@@ -34,6 +34,12 @@ public class FoodController {
         return ApiResult.OK(foodStatusService.findAllFood().stream().map(foodEntity -> new FoodResponseDto(foodEntity)).collect((toList())));
     }
 
+    // 특정 음식에 대한 정보
+    @GetMapping("/get/food/{id}")
+    public ApiResult<FoodResponseDto> foodInfo(@PathVariable("id") Long foodId) {
+        return ApiResult.OK(new FoodResponseDto(foodStatusService.findByIdFood(foodId)));
+    }
+
     // 음식점별 음식 리스트
     @GetMapping("/get/food-list/{restaurant}")
     public ApiResult<List<FoodResponseDto>> foodListRestaurant(@PathVariable("restaurant") String restaurant) {

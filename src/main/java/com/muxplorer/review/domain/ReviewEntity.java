@@ -30,7 +30,6 @@ public class ReviewEntity {
     @Column(columnDefinition = "TEXT")
     private String content;
     private Float rating;
-    private String reviewPicture;
     private LocalDateTime createDate;
     private LocalDateTime modifiedDate;
 
