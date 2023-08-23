@@ -15,6 +15,9 @@ public class ReviewRequest {
     private Long userId;
 
     @NotNull
+    private String nickname;
+
+    @NotNull
     private Long foodId;
 
     @NotBlank

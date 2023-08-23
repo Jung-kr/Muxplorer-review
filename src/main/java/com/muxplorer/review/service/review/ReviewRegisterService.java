@@ -41,6 +41,7 @@ public class ReviewRegisterService {
         ReviewEntity reviewEntity = ReviewEntity.builder()
                 .food(foodEntity)
                 .userId(reviewRequest.getUserId())
+                .nickname(reviewRequest.getNickname())
                 .content(reviewRequest.getContent())
                 .rating(reviewRequest.getRating())
                 .reviewPicture(filePath)

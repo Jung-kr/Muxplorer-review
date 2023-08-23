@@ -25,6 +25,7 @@ public class ReviewEntity {
     private FoodEntity food;
 
     private Long userId;
+    private String nickname;
 
     @Column(columnDefinition = "TEXT")
     private String content;
