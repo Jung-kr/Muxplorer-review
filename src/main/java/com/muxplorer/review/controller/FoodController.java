@@ -24,8 +24,8 @@ public class FoodController {
 
     // 음식 리스트 받아오기(크롤링)
     @PostMapping("/send/foods")
-    public ApiResult<List<FoodResponseDto>> foodRegister(@RequestBody List<FoodRequest> foodRequest) {
-        return ApiResult.OK(foodSendService.addFood(foodRequest).stream().map(foodEntity -> new FoodResponseDto(foodEntity)).collect(toList()));
+    public void foodRegister(@RequestBody List<FoodRequest> foodRequest) {
+        foodSendService.addFood(foodRequest);
     }
 
     // 음식 리스트

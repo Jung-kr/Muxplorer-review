@@ -26,7 +26,6 @@ public class FoodSendService {
             FoodEntity foodEntity = FoodEntity.builder()
                     .name(foodRequest.getName())
                     .restaurant(foodRequest.getRestaurant())
-                    .foodPicture(foodRequest.getFoodPicture())
                     .build();
 
             foodRepository.save(foodEntity);

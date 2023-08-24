@@ -4,10 +4,6 @@ spring:
     username: root  # MySQL username 입력
     password: 1234  # MySQL 비밀번호 입력
     driver-class-name: com.mysql.cj.jdbc.Driver
-
-  main:
-    allow-circular-references: true
-    web-application-type: reactive
   application:
     name: review-service
 

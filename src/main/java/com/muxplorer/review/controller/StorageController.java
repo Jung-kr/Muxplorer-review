@@ -24,6 +24,11 @@ public class StorageController {
                 .body(uploadImage);
     }
 
+    @PostMapping("/file")
+    public String postFile(@RequestPart MultipartFile file) {
+        return file.getOriginalFilename();
+    }
+
     @GetMapping("/filesystem/{fileName}")
     public ResponseEntity<?> downloadImageToFileSystem(@PathVariable("fileName") String fileName) throws IOException {
         byte[] downloadImage = storageService.downloadImageFromFileSystem(fileName);

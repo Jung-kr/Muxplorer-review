@@ -26,6 +26,7 @@ public class ReviewEntity {
 
     private Long userId;
     private String nickname;
+    private String reviewPicturePath;
 
     @Column(columnDefinition = "TEXT")
     private String content;
