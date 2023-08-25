@@ -8,13 +8,20 @@ import com.muxplorer.review.service.food.FoodStatusService;
 import com.muxplorer.review.service.review.ReviewDeleteService;
 import com.muxplorer.review.service.review.ReviewRegisterService;
 import com.muxplorer.review.service.review.ReviewStatusService;
+import org.springframework.core.io.Resource;
 import lombok.RequiredArgsConstructor;
+import org.springframework.core.io.FileSystemResource;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.List;
 
 import static java.util.stream.Collectors.toList;
@@ -44,6 +51,28 @@ public class ReviewController {
         FoodEntity foodEntity = foodStatusService.findByIdFood(foodId);
         return ApiResult.OK(reviewStatusService.findReviewByFood(foodEntity).stream().map(reviewEntity -> new ReviewResponseDto(reviewEntity)).collect(toList()));
     }
+
+    /*
+    @GetMapping("/get/image/{id}")
+    public ResponseEntity<Resource> getImageByReviewId(@PathVariable("id") Long reviewId) {
+        String path =reviewStatusService.getImagePath(reviewId);
+
+        Path imagePath = Paths.get(path);
+        Resource imageResource = new FileSystemResource(imagePath);
+
+        if (imageResource.exists() && imageResource.isReadable()) {
+            HttpHeaders headers = new HttpHeaders();
+            headers.setContentType(MediaType.IMAGE_JPEG);
+
+            return ResponseEntity.ok()
+                    .headers(headers)
+                    .body(imageResource);
+
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
+     */
 
     // 리뷰 삭제
     @DeleteMapping("/delete/review/{id}")

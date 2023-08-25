@@ -23,9 +23,19 @@ public class ReviewRegisterService {
 
     public ReviewEntity addReview(FoodEntity foodEntity, ReviewRequest reviewRequest, MultipartFile image) {
 
-        Date date = new Date();
-        UUID uuid = UUID.randomUUID();
-        String filePath = FOLDER_PATH + uuid + "_" + image.getOriginalFilename() ;
+        String filePath = "";
+
+        try {
+            if(!image.isEmpty()) {
+                filePath = FOLDER_PATH + UUID.randomUUID() + "_" + image.getOriginalFilename();
+                image.transferTo(new File(filePath));
+            } else {
+                filePath = "null";
+                image.transferTo(new File(filePath));
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
         ReviewEntity reviewEntity = ReviewEntity.builder()
                 .food(foodEntity)
@@ -38,13 +48,7 @@ public class ReviewRegisterService {
                 .modifiedDate(LocalDateTime.now())
                 .build();
 
-        try {
-            if(!image.isEmpty()) {
-                image.transferTo(new File(filePath));
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+
 
         return reviewRepository.save(reviewEntity);
     }

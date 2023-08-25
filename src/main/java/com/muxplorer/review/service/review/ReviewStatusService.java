@@ -18,4 +18,11 @@ public class ReviewStatusService {
         return reviewRepository.findByFood(foodEntity);
     }
 
+    public String getImagePath(long reviewId) {
+        ReviewEntity reviewEntity = reviewRepository.findById(reviewId)
+                .orElseThrow(RuntimeException::new);
+
+        return reviewEntity.getReviewPicturePath();
+    }
+
 }
