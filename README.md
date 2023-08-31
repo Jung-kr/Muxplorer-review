@@ -9,4 +9,4 @@ MSA 아키텍처를 활용한 Muxplorer의 review-service입니다
 
 | 이름 | git address |
 |------|-------------|
-|Muxplorer| [Muxplorer] (https://github.com/chungbukUniv-web-project-team/Muxplorer) |
+|Muxplorer| (https://github.com/chungbukUniv-web-project-team/Muxplorer) |
