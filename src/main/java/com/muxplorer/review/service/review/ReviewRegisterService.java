@@ -19,10 +19,11 @@ import java.util.UUID;
 public class ReviewRegisterService {
 
     private final ReviewRepository reviewRepository;
-    private final String FOLDER_PATH = "C:\\test\\";
+    private final String FOLDER_PATH = "~/muxplorer/review_picture/";
 
-    public ReviewEntity addReview(FoodEntity foodEntity, ReviewRequest reviewRequest, MultipartFile image) {
+    public ReviewEntity addReview(FoodEntity foodEntity, ReviewRequest reviewRequest) {
 
+        /*
         String filePath = "";
 
         try {
@@ -36,12 +37,13 @@ public class ReviewRegisterService {
         } catch (IOException e) {
             e.printStackTrace();
         }
+         */
 
         ReviewEntity reviewEntity = ReviewEntity.builder()
                 .food(foodEntity)
                 .userId(reviewRequest.getUserId())
                 .nickname(reviewRequest.getNickname())
-                .reviewPicturePath(filePath)
+                .reviewPicturePath(null)
                 .content(reviewRequest.getContent())
                 .rating(reviewRequest.getRating())
                 .createDate(LocalDateTime.now())

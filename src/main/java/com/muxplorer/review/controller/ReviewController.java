@@ -39,10 +39,9 @@ public class ReviewController {
 
     // 리뷰 등록
     @PostMapping("/send/review")
-    public ApiResult<ReviewResponseDto> registerReview(@RequestPart(value = "image", required = false) MultipartFile image,
-                                                       @Validated @RequestPart(value = "info") ReviewRequest reviewRequest) {
+    public ApiResult<ReviewResponseDto> registerReview(@Validated @RequestBody ReviewRequest reviewRequest) {
         FoodEntity foodEntity = foodStatusService.findByIdFood(reviewRequest.getFoodId());
-        return ApiResult.OK(new ReviewResponseDto(reviewRegisterService.addReview(foodEntity, reviewRequest, image)));
+        return ApiResult.OK(new ReviewResponseDto(reviewRegisterService.addReview(foodEntity, reviewRequest)));
     }
 
     // 특정 음식에 해당하는 리뷰 리스트

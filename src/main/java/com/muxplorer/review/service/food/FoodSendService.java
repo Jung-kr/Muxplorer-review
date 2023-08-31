@@ -21,6 +21,8 @@ public class FoodSendService {
         for(FoodRequest foodRequest : foodRequestList) {
             if(foodRepository.existsByNameAndRestaurant(foodRequest.getName(), foodRequest.getRestaurant())) {
                 continue;
+            } else if(foodRequest.getName().equals("미운영")) {
+                continue;
             }
 
             FoodEntity foodEntity = FoodEntity.builder()
