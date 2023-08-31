@@ -23,7 +23,6 @@ public class FoodEntity {
 
     private String name;
     private String restaurant;
-    private String foodPicture;
 
     @JsonIgnore
     @OneToMany(mappedBy = "food", cascade = CascadeType.REMOVE)

@@ -21,12 +21,13 @@ public class FoodSendService {
         for(FoodRequest foodRequest : foodRequestList) {
             if(foodRepository.existsByNameAndRestaurant(foodRequest.getName(), foodRequest.getRestaurant())) {
                 continue;
+            } else if(foodRequest.getName().equals("미운영")) {
+                continue;
             }
 
             FoodEntity foodEntity = FoodEntity.builder()
                     .name(foodRequest.getName())
                     .restaurant(foodRequest.getRestaurant())
-                    .foodPicture(foodRequest.getFoodPicture())
                     .build();
 
             foodRepository.save(foodEntity);

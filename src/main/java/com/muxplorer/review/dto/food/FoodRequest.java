@@ -6,5 +6,4 @@ import lombok.Getter;
 public class FoodRequest {
     private String name;
     private String restaurant;
-    private String foodPicture;
 }

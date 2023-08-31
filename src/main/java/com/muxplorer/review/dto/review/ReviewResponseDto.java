@@ -15,6 +15,7 @@ public class ReviewResponseDto {
     private Long id;
     private Long userId;
     private String nickname;
+    private String reviewPicturePath;
     private String content;
     private Float rating;
     private LocalDateTime createDate;
